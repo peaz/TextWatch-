@@ -33,7 +33,7 @@ static void update_watch(PblTm* t) {
   char cur_hour[20];
   strcpy(cur_hour, str_hour);
   english_time(t->tm_hour, t->tm_min, str_hour, str_min);
-  string_format_time(str_day_date, sizeof(str_day_date), "%A\n%B %e, %Y", t);
+  string_format_time(str_day_date, sizeof(str_day_date), "%a, %b %e", t);
   
   if(strcmp(cur_hour,str_hour) != 0 && init_flag == true)
     vibes_short_pulse();
@@ -78,7 +78,7 @@ void handle_init_app(AppContextRef app_ctx) {
   text_layer_init(&day_dateLayer, GRect(0, 136, 144, 168-136));
   text_layer_set_text_color(&day_dateLayer, GColorWhite);
   text_layer_set_background_color(&day_dateLayer, GColorClear);
-  text_layer_set_font(&day_dateLayer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
+  text_layer_set_font(&day_dateLayer, fonts_get_system_font(FONT_KEY_GOTHIC_24));
   text_layer_set_text_alignment(&day_dateLayer, GTextAlignmentLeft);
   layer_add_child(&window.layer, &day_dateLayer.layer);
 
